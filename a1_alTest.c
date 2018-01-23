@@ -1,3 +1,4 @@
+#include <stdio.h>
 /*
 ALGORITHM X(A[0..n − 1])
 // Input: A contains n real numbers
@@ -25,4 +26,10 @@ void al1(int * array, int n){
 	for (i=0;i<n;i++){
 		printf("%d\n", array[i]);
 	}
+}
+
+
+int main(){
+
+
 }
