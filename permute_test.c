@@ -66,7 +66,7 @@ char ** readFile(char * fileName){
 	char hold[12];
 	int i = 0;
 	int j = 0;
-
+	printf("here\n");
 	while (c = fgetc(fp) != EOF){
 		if (c != ' ' ||c != '\n'){
 			hold[i] = c;
