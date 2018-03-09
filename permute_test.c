@@ -68,24 +68,24 @@ char ** readFile(char * fileName){
 
 	char c;
 	fscanf(fp, "%c",&c);
-	printf("%c\n", c);
 
-	// while (c = fgetc(fp) != EOF){
-	// 	printf("%c\n", c);
-	// 	if (c == ' ' || c == '\n'){
-	// 		hold[i] = '\0';
-	// 		dict[j] = malloc(sizeof(char)*(i+1));
-	// 		strcpy(dict[j],hold);
-	// 		j++;
-	// 		i = 0;
+	while (c != EOF){
+		printf("%c\n", c);
+		if (c == ' ' || c == '\n'){
+			hold[i] = '\0';
+			dict[j] = malloc(sizeof(char)*(i+1));
+			strcpy(dict[j],hold);
+			j++;
+			i = 0;
 		
-	// 	} else {
-	// 		printf("%d\n");
+		} else {
+			printf("%d\n");
 
-	// 		hold[i] = c;
-	// 		i++;
-	// 	}
-	// }
+			hold[i] = c;
+			i++;
+		}
+		fscanf(fp, "%c",&c);
+	}
 }
 
 
