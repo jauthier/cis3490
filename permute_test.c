@@ -66,9 +66,9 @@ char ** readFile(char * fileName){
 	int i = 0;
 	int j = 0;
 
-	char c;
-	fscanf(fp, "%c",c);
-	printf("%c\n", c);
+	long c;
+	fscanf(fp, "%li",c);
+	printf("%li\n", c);
 
 	// while (c = fgetc(fp) != EOF){
 	// 	printf("%c\n", c);
@@ -92,7 +92,8 @@ char ** readFile(char * fileName){
 int main(int argc, char const *argv[])
 {
 	char first[11] = "1131176292";
-	char ** dict = readFile("data_4.txt");
+	char fileName[20] = "data_4.txt";
+	char ** dict = readFile(fileName);
 
 	return 0;
 }
