@@ -52,6 +52,7 @@ int bruteForceDetection(char * first, char ** dict) {
 		if (check == 1)
 			count ++;
 	}
+	return count;
 }
 
 char ** readFile(char * fileName){
@@ -70,11 +71,9 @@ char ** readFile(char * fileName){
 	fscanf(fp, "%c",&c);
 
 	while (c != EOF){
-		//printf("%c\n", c);
 		if (c == ' ' || c == '\n'){
 			if (c == ' '){
 				hold[i] = '\0';
-				printf("%d: %s\n",strlen(hold), hold);
 				dict[j] = malloc(sizeof(char)*(strlen(hold)+2));
 				strcpy(dict[j],hold);
 				j++;
@@ -82,12 +81,9 @@ char ** readFile(char * fileName){
 			}
 		
 		} else {
-			//printf("%d\n",i);
-
 			hold[i] = c;
 			i++;
 		}
-		//char a = getchar();
 		int ret =  fscanf(fp, "%c",&c);
 		if (ret == EOF)
 			break;
@@ -109,6 +105,8 @@ int main(int argc, char const *argv[])
 	char first[11] = "1131176292";
 	char fileName[20] = "data_4.txt";
 	char ** dict = readFile(fileName);
+
+	int num = bruteForceDetection(first, dict);
 
 	freeDict(dict);
 	free(dict);
