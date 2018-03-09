@@ -10,24 +10,29 @@ void swap(char *x, char *y)
     *y = temp;
 }
  
-/* Function to print permutations of string
-   This function takes three parameters:
-   Input: 
-     String
-   	 Starting index of the string
-  	 Ending index of the string. 
-  	 String to compare
+/* 
+	For finding all the permutations of the first string
+   	Input: 
+      first - String to be permuted
+   	  l - Starting index of the string
+  	  r - Ending index of the string. 
+  	  second - String to compare to all the permutations
 */
-void permute(char * first, int l, int r, char * second){
+int permute(char * first, int l, int r, char * second){
 	int i;
 	if (l == r) {
 		if (strcmp(first, second)==0){
 			printf("%s\n", first);
+			return 1;
 		}
+		printf(" No match: %s\n", first);
+		return 0;
 	} else {
 		for (i = l; i <= r; i++){
 			swap((first+l), (first+i));
-			permute(first, l+1, r,second);
+			int ret = permute(first, l+1, r,second);
+			if (ret == 1)
+				return 1;
 			swap((first+l), (first+i)); //backtrack
 		}
 	}
