@@ -73,7 +73,7 @@ char ** readFile(char * fileName){
 		//printf("%c\n", c);
 		if (c == ' ' || c == '\n'){
 			hold[i] = '\0';
-			printf("%s\n", hold);
+			printf("%d: %s\n",strlen(hold), hold);
 			dict[j] = malloc(sizeof(char)*(strlen(hold)+2));
 			strcpy(dict[j],hold);
 			j++;
