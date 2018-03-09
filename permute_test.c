@@ -67,8 +67,8 @@ char ** readFile(char * fileName){
 	int i = 0;
 	int j = 0;
 	while (c = fgetc(fp) != EOF){
-		if (c != ' ' ||c != '\n'){
-			printf("here\n");
+		if (c != ' ' && c != '\n'){
+			printf("%d\n");
 
 			hold[i] = c;
 			i++;
