@@ -84,7 +84,7 @@ char ** readFile(char * fileName){
 			hold[i] = c;
 			i++;
 		}
-		char a = getchar();
+		//char a = getchar();
 		fscanf(fp, "%c",&c);
 
 	}
