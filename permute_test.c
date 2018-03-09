@@ -27,7 +27,7 @@ void permute(char * first, int l, int r, char * second){
 		for (i = l; i <= r; i++){
 			swap((first+l), (first+i));
 			permute(first, l+1, r,second);
-			swap((a+l), (a+i)); //backtrack
+			swap((first+l), (first+i)); //backtrack
 		}
 	}
 }
