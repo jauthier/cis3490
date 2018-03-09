@@ -72,12 +72,14 @@ char ** readFile(char * fileName){
 	while (c != EOF){
 		//printf("%c\n", c);
 		if (c == ' ' || c == '\n'){
-			hold[i] = '\0';
-			printf("%d: %s\n",strlen(hold), hold);
-			dict[j] = malloc(sizeof(char)*(strlen(hold)+2));
-			strcpy(dict[j],hold);
-			j++;
-			i = 0;
+			if (c == ' '){
+				hold[i] = '\0';
+				printf("%d: %s\n",strlen(hold), hold);
+				dict[j] = malloc(sizeof(char)*(strlen(hold)+2));
+				strcpy(dict[j],hold);
+				j++;
+				i = 0;
+			}
 		
 		} else {
 			//printf("%d\n",i);
