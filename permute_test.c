@@ -70,16 +70,17 @@ char ** readFile(char * fileName){
 	fscanf(fp, "%c",&c);
 
 	while (c != EOF){
-		printf("%c\n", c);
+		//printf("%c\n", c);
 		if (c == ' ' || c == '\n'){
 			hold[i] = '\0';
+			printf("%s\n", hold);
 			dict[j] = malloc(sizeof(char)*(i+1));
 			strcpy(dict[j],hold);
 			j++;
 			i = 0;
 		
 		} else {
-			printf("%d\n",i);
+			//printf("%d\n",i);
 
 			hold[i] = c;
 			i++;
