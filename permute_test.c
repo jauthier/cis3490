@@ -66,9 +66,9 @@ char ** readFile(char * fileName){
 	int i = 0;
 	int j = 0;
 
-	int c;
-	fscanf(fp, "%d",c);
-	printf("%d\n", c);
+	char c;
+	fscanf(fp, "%c",c);
+	printf("%c\n", c);
 
 	// while (c = fgetc(fp) != EOF){
 	// 	printf("%c\n", c);
