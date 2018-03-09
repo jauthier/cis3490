@@ -10,8 +10,7 @@ void swap(char *x, char *y)
     *y = temp;
 }
  
-/* 
-	For finding all the permutations of the first string
+/* For finding all the permutations of the first string
    	Input: 
       first - String to be permuted
    	  l - Starting index of the string
@@ -25,7 +24,6 @@ int permute(char * first, int l, int r, char * second){
 			printf("%s\n", first);
 			return 1;
 		}
-		printf(" No match: %s\n", first);
 		return 0;
 	} else {
 		for (i = l; i <= r; i++){
@@ -38,12 +36,55 @@ int permute(char * first, int l, int r, char * second){
 	}
 }
 
+/*  Finds all of the anagrams via brute force
+	Inputs: 
+	  first - the users string
+	  second - the string from data_4.txt that we are checking if its and anagram
+ */
+int bruteForceDetection(char * first, char ** dict) {
+	int i = 0;
+	int l = 0;
+	int r = strlen(first) - 1;
+	int count = 0;
+	for (i=0;i<30000;i++){
+		int check = permute(first, l, r, dict[i]);
+		if (check == 1)
+			count ++;
+	}
+}
+
+char ** readFile(char * fileName){
+	FILE * fp = fopen(fileName, "r");
+	if (fp == NULL){
+		printf("Invalid file.\n");
+		exit(0);
+	}
+
+	char ** dictionary = malloc(sizeof(char *)*30000);
+	char c;
+	char hold[12];
+	int i = 0;
+	int j = 0;
+
+	while (c = fgetc() != EOF){
+		if (c != ' ' ||c != '\n'){
+			hold[i] = c;
+			i++;
+		} else {
+			hold[i] = '\0';
+			dict[j] = malloc(sizeof(char)*(i+1));
+			strcpy(dict[j],hold);
+			j++;
+			i = 0;
+		}
+	}
+}
+
 
 int main(int argc, char const *argv[])
 {
-	char str[4] = "tea";
-	char second[4] = "eat";
-	permute(str,0,2,second);
+	char first[11] = "1131176292";
+	char ** dict = readFile("data_4.txt");
 
 	return 0;
 }
