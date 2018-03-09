@@ -79,12 +79,14 @@ char ** readFile(char * fileName){
 			i = 0;
 		
 		} else {
-			printf("%d\n");
+			printf("%d\n",i);
 
 			hold[i] = c;
 			i++;
 		}
+		char a = getch();
 		fscanf(fp, "%c",&c);
+
 	}
 }
 
