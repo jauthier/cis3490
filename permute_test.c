@@ -86,9 +86,12 @@ char ** readFile(char * fileName){
 			i++;
 		}
 		//char a = getchar();
-		fscanf(fp, "%c",&c);
+		int ret =  fscanf(fp, "%c",&c);
+		if (ret == EOF)
+			break;
 
 	}
+	return dict;
 }
 
 
