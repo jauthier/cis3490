@@ -21,8 +21,9 @@ void swap(char *x, char *y)
 void permute(char * first, int l, int r, char * second){
 	int i;
 	if (l == r) {
-
-		printf("%s\n", first);
+		if (strcmp(first, second)==0){
+			printf("%s\n", first);
+		}
 	} else {
 		for (i = l; i <= r; i++){
 			swap((first+l), (first+i));
