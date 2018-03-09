@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 /* Function to swap values at two pointers */
 void swap(char *x, char *y)
@@ -66,7 +67,7 @@ char ** readFile(char * fileName){
 	int i = 0;
 	int j = 0;
 
-	while (c = fgetc() != EOF){
+	while (c = fgetc(fp) != EOF){
 		if (c != ' ' ||c != '\n'){
 			hold[i] = c;
 			i++;
