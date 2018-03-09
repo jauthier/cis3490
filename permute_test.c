@@ -94,12 +94,23 @@ char ** readFile(char * fileName){
 	return dict;
 }
 
+void freeDict(char ** dict){
+	int i=0;
+	for (i=0;i<30000;i++){
+		free(dict[i]);
+	}
+}
+
 
 int main(int argc, char const *argv[])
 {
 	char first[11] = "1131176292";
 	char fileName[20] = "data_4.txt";
 	char ** dict = readFile(fileName);
+
+	freeDict(dict);
+	free(dict);
+
 
 	return 0;
 }
