@@ -61,7 +61,7 @@ char ** readFile(char * fileName){
 		exit(0);
 	}
 
-	char ** dictionary = malloc(sizeof(char *)*30000);
+	char ** dict = malloc(sizeof(char *)*30000);
 	char c;
 	char hold[12];
 	int i = 0;
