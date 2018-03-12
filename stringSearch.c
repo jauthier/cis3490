@@ -43,7 +43,7 @@ char * readFile(char * fileName) {
 		exit(0);
 	}
 
-	char * text = malloc(sizeof(char)*3296600);
+	char * text = malloc(sizeof(char)*3300000);
 	printf("here\n");
 	int i = 0;
 	char c;
