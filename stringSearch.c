@@ -73,6 +73,10 @@ int main(int argc, char const *argv[]) {
 	printf("Please enter a a pattern you wish to search for: ");
 	fgets(pattern,100,stdin);
 
+	int len = strlen(pattern) - 1;
+	if (pattern[len] == '\n')
+		pattern[len] = '\0';
+
 	t_start = time(NULL);
 	int numFound = horspoolSearch(text,pattern,table);
 	t_end = time(NULL);
