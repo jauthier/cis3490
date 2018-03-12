@@ -30,9 +30,9 @@ int permute(char * first, int l, int r, char * second){
 		for (i = l; i <= r; i++){
 			swap((first+l), (first+i));
 			int ret = permute(first, l+1, r,second);
+			swap((first+l), (first+i)); //backtrack
 			if (ret == 1)
 				return 1;
-			swap((first+l), (first+i)); //backtrack
 		}
 	}
 }
