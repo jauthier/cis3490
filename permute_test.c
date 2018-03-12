@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys\timeb.h>  
 
 /* Function to swap values at two pointers */
 void swap(char *x, char *y)
@@ -57,7 +58,42 @@ int bruteForceDetection(char * first, char ** dict) {
 	return count;
 }
 
-char ** readFile(char * fileName){
+char * sort(char * toSort){
+	int len = strlen(toSort);
+	int i = 0;
+	int j = 0;
+	char * sortedStr = malloc(sizeof(char)*(len+1));
+	strcpy(sortedStr, toSort);
+	for (i = 0; i < len; i++) {
+      for (j = i+1; j < n; j++) {
+         if (sortedStr[i] > sortedStr[j]) {
+            char temp = sortedStr[i];
+            sortedStr[i] = sortedStr[j];
+            sortedStr[j] = temp;
+         }
+      }
+   }
+   return sortedStr;
+}
+
+int sortingDetection(char * first, char ** dict) {
+	int count = 0;
+	int i = 0;
+	char * sorted = sort(first);
+	printf("%s\n", sorted);
+	/*for (i=0;i<30000;i++){
+		char * second = sort(dict[i]);
+		if (strcmp(sorted, second) == 0){
+			printf("%s\n",second);
+			count ++;
+		}
+		free(second);
+	}*/
+	free(sorted);
+	return count;
+}
+
+char ** readFile(char * fileName) {
 	FILE * fp = fopen(fileName, "r");
 	if (fp == NULL){
 		printf("Invalid file.\n");
@@ -106,8 +142,20 @@ int main(int argc, char const *argv[])
 	char first[11] = "1131176292";
 	char fileName[20] = "data_4.txt";
 	char ** dict = readFile(fileName);
+	struct timeb t_start, t_end;
+	int t_diff;
 
+	ftime(&t_start);
 	int num = bruteForceDetection(first, dict);
+	ftime(t_end);
+	t_diff = (int) (1000.0 * (t_end.time - t_start.time) + (t_end.millitm - t_start.millitm))
+	printf("There were %d anagrams found in %dms.\n",num,t_diff);
+
+	ftime(&t_start);
+	num = sortingDetection(first, dict);
+	ftime(t_end);
+	t_diff = (int) (1000.0 * (t_end.time - t_start.time) + (t_end.millitm - t_start.millitm))
+	printf("There were %d anagrams found in %dms.\n",num,t_diff);
 
 	freeDict(dict);
 	free(dict);
