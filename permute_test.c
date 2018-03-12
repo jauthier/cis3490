@@ -51,6 +51,8 @@ int bruteForceDetection(char * first, char ** dict) {
 		int check = permute(first, l, r, dict[i]);
 		if (check == 1)
 			count ++;
+		if (i%1000 == 0)
+			printf("still going\n");
 	}
 	return count;
 }
@@ -98,7 +100,6 @@ void freeDict(char ** dict){
 		free(dict[i]);
 	}
 }
-
 
 int main(int argc, char const *argv[])
 {
