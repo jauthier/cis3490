@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <timeb.h>  
+//#include <timeb.h>  
 
 /* Function to swap values at two pointers */
 void swap(char *x, char *y)
@@ -142,8 +142,8 @@ int main(int argc, char const *argv[])
 	char first[11] = "1131176292";
 	char fileName[20] = "data_4.txt";
 	char ** dict = readFile(fileName);
-	struct timeb t_start, t_end;
-	int t_diff;
+	//struct timeb t_start, t_end;
+	//int t_diff;
 
 	/*ftime(&t_start);
 	int num = bruteForceDetection(first, dict);
@@ -151,11 +151,11 @@ int main(int argc, char const *argv[])
 	t_diff = (int) (1000.0 * (t_end.time - t_start.time) + (t_end.millitm - t_start.millitm))
 	printf("There were %d anagrams found in %dms.\n",num,t_diff);
 */
-	ftime(&t_start);
+	//ftime(&t_start);
 	num = sortingDetection(first, dict);
-	ftime(t_end);
-	t_diff = (int) (1000.0 * (t_end.time - t_start.time) + (t_end.millitm - t_start.millitm))
-	printf("There were %d anagrams found in %dms.\n",num,t_diff);
+	//ftime(t_end);
+	//t_diff = (int) (1000.0 * (t_end.time - t_start.time) + (t_end.millitm - t_start.millitm))
+	//printf("There were %d anagrams found in %dms.\n",num,t_diff);
 
 	freeDict(dict);
 	free(dict);
