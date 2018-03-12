@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <sys\timeb.h>  
+#include <timeb.h>  
 
 /* Function to swap values at two pointers */
 void swap(char *x, char *y)
