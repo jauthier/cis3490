@@ -1,3 +1,10 @@
+/*
+	anagramDetect.c
+	CIS3490 A3
+	Jessica Authier
+	0849720
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -41,7 +48,9 @@ int permute(char * first, int l, int r, char * second) {
 /*  Finds all of the anagrams via brute force
 	Inputs: 
 	  first - the users string
-	  second - the string from data_4.txt that we are checking if its and anagram
+	  dict - all of the strings from data_4.txt
+	Output:
+	  count - the number of anagrams found
  */
 int bruteForceDetection(char * first, char ** dict) {
 	int i = 0;
@@ -58,6 +67,12 @@ int bruteForceDetection(char * first, char ** dict) {
 	return count;
 }
 
+/* Sorts a string in alpha-numeric order
+   Input:
+     toSort - a string to sort
+   Output:
+     sort - the sorted string
+*/
 char * sort(char * toSort) {
 	int len = strlen(toSort);
 	int i = 0;
@@ -76,6 +91,13 @@ char * sort(char * toSort) {
    return sortedStr;
 }
 
+/*  Finds all of the anagrams via presorting
+	Inputs: 
+	  first - the users string
+	  dict - all of the strings from data_4.txt
+	Output:
+	  count - the number of anagrams found
+ */
 int sortingDetection(char * first, char ** dict) {
 	int count = 0;
 	int i = 0;
@@ -92,6 +114,10 @@ int sortingDetection(char * first, char ** dict) {
 	return count;
 }
 
+/* Reads the file and makes an array of all the strings
+   Input:
+     fileName - the name of the file to be read from
+*/
 char ** readFile(char * fileName) {
 	FILE * fp = fopen(fileName, "r");
 	if (fp == NULL){
@@ -129,6 +155,7 @@ char ** readFile(char * fileName) {
 	return dict;
 }
 
+/* frees the string in the array */
 void freeDict(char ** dict){
 	int i=0;
 	for (i=0;i<30000;i++){

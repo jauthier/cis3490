@@ -1,9 +1,20 @@
+/*
+	stringSearch.c
+	CIS3490 A3
+	Jessica Authier
+	0849720
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
 
-
+/* Creates shift table for horspool search
+   Input:
+     pattern - the pattern to search for
+     table - the reference table
+*/
 void shifttable(char * pattern, int * table){
 	int i,j,m;
 	m=strlen(pattern);
@@ -15,6 +26,14 @@ void shifttable(char * pattern, int * table){
 	}
 }
 
+/* Searches for all the instances of the pattern in the text visa horspool's algorithm
+   Input:
+     text - the entire text to search
+     pattern - the pattern to search for
+     table - the reference table
+   Output:
+     count - the number of matches found
+*/
 int horspoolSearch(char * text, char * pattern, int * table) {
 	int i,j,k,m,n;
 	n=strlen(text);
@@ -35,7 +54,12 @@ int horspoolSearch(char * text, char * pattern, int * table) {
 	return count;
 }
 
-
+/* Reads in then file and puts every character in an array
+	Inputs: 
+	  fileName - the name of the file to be read
+	Output:
+	  text - the array of all the characters from the file
+*/
 char * readFile(char * fileName) {
 	FILE * fp = fopen(fileName, "r");
 	if (fp == NULL){
