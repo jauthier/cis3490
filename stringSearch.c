@@ -44,6 +44,7 @@ char * readFile(char * fileName) {
 	}
 
 	char * text = malloc(sizeof(char)*3296600);
+	printf("here\n");
 	int i = 0;
 	char c;
 	fscanf(fp, "%c",&c);
