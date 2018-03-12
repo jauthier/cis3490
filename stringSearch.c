@@ -4,10 +4,10 @@
 
 
 
-void shifttable(char * p, int * table){
+void shifttable(char * pattern, int * table){
 	int i,j,m;
 	m=strlen(pattern);
-	for(i=0;i<MAX;i++){
+	for(i=0;i<500;i++){
  		table[i]=m;
 	}
 	for(j=0;j<m-1;j++){
@@ -28,7 +28,7 @@ int horspoolSearch(char * text, char * pattern, int * table) {
   			k++;
  		}
 		if(k==m)
-			rcount ++;
+			count ++;
   		else
 			i+=table[text[i]];
 	}
