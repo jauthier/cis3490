@@ -80,15 +80,15 @@ int sortingDetection(char * first, char ** dict) {
 	int count = 0;
 	int i = 0;
 	char * sorted = sort(first);
-	printf("%s\n", sorted);
-	/*for (i=0;i<30000;i++){
+	//printf("%s\n", sorted);
+	for (i=0;i<30000;i++){
 		char * second = sort(dict[i]);
 		if (strcmp(sorted, second) == 0){
-			printf("%s\n",second);
+			printf("%s\n",dict[i]);
 			count ++;
 		}
 		free(second);
-	}*/
+	}
 	free(sorted);
 	return count;
 }
