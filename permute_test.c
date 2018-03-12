@@ -154,7 +154,7 @@ int main(int argc, char const *argv[])
 	printf("There were %d anagrams found in %ldms.\n",num,t_diff);
 
 	t_start = time(NULL);
-	int num = sortingDetection(first, dict);
+	num = sortingDetection(first, dict);
 	t_end = time(NULL);
 	t_diff = (long) t_end - t_start;
 	printf("There were %d anagrams found in %ldms.\n",num,t_diff);
