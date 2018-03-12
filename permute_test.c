@@ -64,8 +64,8 @@ char * sort(char * toSort){
 	int j = 0;
 	char * sortedStr = malloc(sizeof(char)*(len+1));
 	strcpy(sortedStr, toSort);
-	for (i = 0; i < len; i++) {
-      for (j = i+1; j < n; j++) {
+	for (i = 0; i < len-1; i++) {
+      for (j = i+1; j < len; j++) {
          if (sortedStr[i] > sortedStr[j]) {
             char temp = sortedStr[i];
             sortedStr[i] = sortedStr[j];
