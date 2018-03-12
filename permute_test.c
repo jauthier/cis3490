@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-//#include <timeb.h>  
+#include <time.h>  
 
 /* Function to swap values at two pointers */
 void swap(char *x, char *y)
@@ -19,7 +19,7 @@ void swap(char *x, char *y)
   	  r - Ending index of the string. 
   	  second - String to compare to all the permutations
 */
-int permute(char * first, int l, int r, char * second){
+int permute(char * first, int l, int r, char * second) {
 	int i;
 	if (l == r) {
 		if (strcmp(first, second)==0){
@@ -58,7 +58,7 @@ int bruteForceDetection(char * first, char ** dict) {
 	return count;
 }
 
-char * sort(char * toSort){
+char * sort(char * toSort) {
 	int len = strlen(toSort);
 	int i = 0;
 	int j = 0;
@@ -80,7 +80,6 @@ int sortingDetection(char * first, char ** dict) {
 	int count = 0;
 	int i = 0;
 	char * sorted = sort(first);
-	//printf("%s\n", sorted);
 	for (i=0;i<30000;i++){
 		char * second = sort(dict[i]);
 		if (strcmp(sorted, second) == 0){
@@ -139,23 +138,26 @@ void freeDict(char ** dict){
 
 int main(int argc, char const *argv[])
 {
-	char first[11] = "1131176292";
+	char first[20];
 	char fileName[20] = "data_4.txt";
 	char ** dict = readFile(fileName);
-	//struct timeb t_start, t_end;
-	//int t_diff;
+    time_t t_start, t_end;
+    long t_diff;
 
-	/*ftime(&t_start);
+	printf("Please enter a string that you want to find the anagrams of: ");
+	fgets(first,20,stdin);
+
+	t_start = time(NULL);
 	int num = bruteForceDetection(first, dict);
-	ftime(t_end);
-	t_diff = (int) (1000.0 * (t_end.time - t_start.time) + (t_end.millitm - t_start.millitm))
-	printf("There were %d anagrams found in %dms.\n",num,t_diff);
-*/
-	//ftime(&t_start);
+	t_end = time(NULL);
+	t_diff = (long) t_end - t_start;
+	printf("There were %d anagrams found in %ldms.\n",num,t_diff);
+
+	t_start = time(NULL);
 	int num = sortingDetection(first, dict);
-	//ftime(t_end);
-	//t_diff = (int) (1000.0 * (t_end.time - t_start.time) + (t_end.millitm - t_start.millitm))
-	//printf("There were %d anagrams found in %dms.\n",num,t_diff);
+	t_end = time(NULL);
+	t_diff = (long) t_end - t_start;
+	printf("There were %d anagrams found in %ldms.\n",num,t_diff);
 
 	freeDict(dict);
 	free(dict);
